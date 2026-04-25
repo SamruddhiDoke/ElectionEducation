@@ -1,4 +1,4 @@
-# 🗳️ CivicPath — Election Education Platform
+# CivicPath — Election Education Platform
 
 > **Your definitive, interactive guide to the U.S. election process.**  
 > Built for learners. Optimized for performance. Accessible for everyone.
@@ -11,7 +11,7 @@
 
 ---
 
-## 📸 Features
+## Features
 
 | Feature | Description |
 |---|---|
@@ -24,7 +24,7 @@
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone the repository
@@ -46,7 +46,7 @@ Open [http://localhost:5173](http://localhost:5173) to view the app.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 civicpath/
@@ -92,7 +92,7 @@ civicpath/
 
 ---
 
-## 🛡️ Security & Performance
+## Security & Performance
 
 ### Security
 
@@ -123,7 +123,7 @@ civicpath/
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests once
@@ -142,7 +142,7 @@ Tests cover:
 
 ---
 
-## 📅 Google Calendar Integration
+## Google Calendar Integration
 
 CivicPath supports adding election dates to Google Calendar via two modes:
 
@@ -159,7 +159,7 @@ VITE_GOOGLE_CLIENT_ID=123456789.apps.googleusercontent.com
 
 ---
 
-## 🐳 Docker & Cloud Run Deployment
+## Docker & Cloud Run Deployment
 
 ```bash
 # Build production Docker image
@@ -179,7 +179,7 @@ gcloud run deploy civicpath \
 
 ---
 
-## ♿ Accessibility (WCAG 2.1 AA)
+## Accessibility (WCAG 2.1 AA)
 
 - **Skip Navigation**: `<a href="#main-content">` skip link on every page
 - **Semantic HTML**: `<main>`, `<nav>`, `<header>`, `<footer>`, `<section>`, `<article>`
@@ -192,6 +192,6 @@ gcloud run deploy civicpath \
 
 ---
 
-## 📜 License
+## License
 
 MIT — free for educational and civic-tech use. Please vote! 🗳️
