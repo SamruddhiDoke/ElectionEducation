@@ -10,7 +10,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { MODULES } from '@data/electionData';
 import { useElection } from '@context/ElectionContext';
 import { addEventToCalendar } from '@services/GoogleCalendarService';
-import { SecurityUtility } from '@utils/SecurityUtility';
+import { SecurityUtils } from '@utils/SecurityUtils';
 
 const ModuleDetailPage = memo(function ModuleDetailPage() {
   const { moduleId } = useParams();
@@ -81,9 +81,9 @@ const ModuleDetailPage = memo(function ModuleDetailPage() {
                   Module {module.order} of {MODULES.length}
                 </div>
                 <h1 className="font-display text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                  {SecurityUtility.sanitize(module.title)}
+                  {SecurityUtils.sanitize(module.title)}
                 </h1>
-                <p className="text-civic-300 font-medium mt-1">{SecurityUtility.sanitize(module.subtitle)}</p>
+                <p className="text-civic-300 font-medium mt-1">{SecurityUtils.sanitize(module.subtitle)}</p>
                 <div className="flex items-center gap-4 mt-3 text-sm text-gray-400">
                   <span>⏱ ~{module.estimatedMinutes} minutes</span>
                   {completed && (
@@ -98,7 +98,7 @@ const ModuleDetailPage = memo(function ModuleDetailPage() {
           <section aria-label="Module overview" className="glass-card p-6 mb-6">
             <h2 className="font-display text-lg font-bold text-white mb-3">Overview</h2>
             <p className="text-gray-300 leading-relaxed text-base">
-              {SecurityUtility.sanitize(module.description)}
+              {SecurityUtils.sanitize(module.description)}
             </p>
           </section>
 
@@ -117,7 +117,7 @@ const ModuleDetailPage = memo(function ModuleDetailPage() {
                     {i + 1}
                   </span>
                   <span className="text-gray-300 text-sm leading-relaxed">
-                    {SecurityUtility.sanitize(point)}
+                    {SecurityUtils.sanitize(point)}
                   </span>
                 </li>
               ))}
@@ -131,10 +131,10 @@ const ModuleDetailPage = memo(function ModuleDetailPage() {
                 <span className="text-3xl" aria-hidden="true">📅</span>
                 <div className="flex-1">
                   <h2 className="font-display font-bold text-white text-base mb-1">
-                    {SecurityUtility.sanitize(module.electionDate.title)}
+                    {SecurityUtils.sanitize(module.electionDate.title)}
                   </h2>
                   <p className="text-gray-400 text-sm mb-4">
-                    {SecurityUtility.sanitize(module.electionDate.description)}
+                    {SecurityUtils.sanitize(module.electionDate.description)}
                   </p>
                   <button
                     type="button"

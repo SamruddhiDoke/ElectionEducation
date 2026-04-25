@@ -1,0 +1,47 @@
+steps:
+  # Install dependencies using native npm ci
+  - name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: ['ci', '--silent']
+    id: 'Install modules'
+
+  # Run strict local testing validations
+  - name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: ['run', 'test']
+    id: 'Validate FSM Logic'
+    
+  # Build application natively
+  - name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: ['run', 'build']
+    id: 'Generate Dist chunk'
+
+  # Build hyper-optimized Docker image matching NGINX configs
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/bharatvotes:$COMMIT_SHA', '.']
+    id: 'Build Alpine Container'
+
+  # Push optimized image to GCP Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/bharatvotes:$COMMIT_SHA']
+    id: 'Push to Registry'
+
+  # Trigger native Cloud Run deployment rollout
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'bharatvotes'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/bharatvotes:$COMMIT_SHA'
+      - '--region'
+      - 'us-central1'
+      - '--allow-unauthenticated'
+      - '--memory'
+      - '256Mi'
+    id: 'Deploy Cloud Run instance'
+
+options:
+  machineType: 'E2_HIGHCPU_8'

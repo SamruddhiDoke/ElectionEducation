@@ -7,7 +7,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 const FEATURES = [
-  { icon: '🔒', title: 'Security First', desc: 'All text is sanitized via our SecurityUtility class. No eval(), no dangerouslySetInnerHTML. Ever.' },
+  { icon: '🔒', title: 'Security First', desc: 'All text is sanitized via our SecurityUtils class. No eval(), no dangerouslySetInnerHTML. Ever.' },
   { icon: '♿', title: 'WCAG 2.1 Compliant', desc: 'Full keyboard navigation, aria-live regions, skip links, and high-contrast color tokens.' },
   { icon: '⚡', title: 'Performance Optimized', desc: 'React.memo, useMemo, useCallback, and route-based lazy loading ensure near-instant interactions.' },
   { icon: '📦', title: 'Zero Heavy Dependencies', desc: 'No Redux, no heavy UI libraries. Just React, Tailwind, and Vite — keeping bundle size minimal.' },
